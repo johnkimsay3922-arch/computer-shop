@@ -2,8 +2,6 @@ package com.example.computersp.controller;
 
 import com.example.computersp.model.Order;
 import com.example.computersp.repository.OrderRepository;
-
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +11,8 @@ import java.util.Optional;
 @RequestMapping("/api/orders")
 @CrossOrigin(origins = "*")
 public class OrderController {
+
+    
 
     private final OrderRepository orderRepository;
 
@@ -80,12 +80,5 @@ public Order updateOrderStatus(
 
     return orderRepository.save(order);
 }
-@DeleteMapping("/all")
-public ResponseEntity<?> deleteAllOrders() {
 
-    orderItemRepository.deleteAll();
-    orderRepository.deleteAll();
-
-    return ResponseEntity.ok("All orders deleted successfully");
-}
 }
