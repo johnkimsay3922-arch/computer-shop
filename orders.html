@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders - Computer Shop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="main-header">
+
+        <div class="logo">
+            Computer Shop
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">
+                Cart
+                <span id="cartCount">0</span>
+            </a>
+            <a href="orders.html" class="active">
+                My Orders
+            </a>
+            <a href="dashboard.html">
+                My Account
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- ORDERS PAGE -->
+
+    <main class="orders-page">
+
+        <div class="orders-header">
+
+            <h1>My Orders</h1>
+
+            <p>
+                View your previous orders and their status.
+            </p>
+
+        </div>
+
+
+        <div id="orders-container">
+
+            <div class="orders-loading">
+                Loading your orders...
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/orders.js"></script>
+
+</body>
+
+</html>

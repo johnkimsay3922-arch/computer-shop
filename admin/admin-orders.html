@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Orders - Computer Shop</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ADMIN HEADER -->
+
+    <header class="admin-header">
+
+        <div class="admin-logo">
+            Computer Shop Admin
+        </div>
+
+        <nav class="admin-nav">
+
+            <a href="admin-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="admin-products.html">
+                Products
+            </a>
+
+            <a href="admin-orders.html" class="active">
+                Orders
+            </a>
+
+            <a href="index.html">
+                View Store
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ADMIN ORDERS -->
+
+    <main class="admin-orders-page">
+
+        <div class="admin-orders-header">
+
+            <h1>Order Management</h1>
+
+            <p>
+                View and manage customer orders.
+            </p>
+
+        </div>
+
+
+        <!-- ORDER STATISTICS -->
+
+        <section class="order-statistics">
+
+            <div class="order-stat-card">
+
+                <span>Total Orders</span>
+
+                <strong id="total-orders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="order-stat-card">
+
+                <span>Pending</span>
+
+                <strong id="pending-orders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="order-stat-card">
+
+                <span>Processing</span>
+
+                <strong id="processing-orders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="order-stat-card">
+
+                <span>Delivered</span>
+
+                <strong id="delivered-orders">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ORDERS -->
+
+        <section class="admin-orders-section">
+
+            <div id="admin-orders-container">
+
+                <p class="admin-orders-loading">
+                    Loading orders...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/admin-orders.js"></script>
+
+</body>
+
+</html>

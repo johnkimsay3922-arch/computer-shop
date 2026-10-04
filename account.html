@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Account | Computer Shop</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         HEADER
+         ================================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            Computer<span>Shop</span>
+        </div>
+
+
+        <nav class="navbar">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="cart.html">
+                Cart
+                <span id="cartCount">0</span>
+            </a>
+
+            <a href="account.html">
+                My Account
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =================================================
+         ACCOUNT PAGE
+         ================================================= -->
+
+    <main class="account-page">
+
+        <div class="account-container">
+
+
+            <!-- =================================================
+                 ACCOUNT HEADER
+                 ================================================= -->
+
+            <div class="account-welcome">
+
+                <div>
+
+                    <p>
+                        COMPUTER SHOP
+                    </p>
+
+                    <h1>
+                        My Account
+                    </h1>
+
+                    <span id="welcome-message">
+                        Welcome back!
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ACCOUNT INFORMATION
+                 ================================================= -->
+
+            <section class="account-section">
+
+                <div class="account-section-header">
+
+                    <div>
+
+                        <p>
+                            PROFILE
+                        </p>
+
+                        <h2>
+                            Account Information
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-details">
+
+
+                    <div class="account-detail">
+
+                        <span>
+                            Full Name
+                        </span>
+
+                        <strong id="account-name">
+                            Loading...
+                        </strong>
+
+                    </div>
+
+
+                    <div class="account-detail">
+
+                        <span>
+                            Email Address
+                        </span>
+
+                        <strong id="account-email">
+                            Loading...
+                        </strong>
+
+                    </div>
+
+
+                    <div class="account-detail">
+
+                        <span>
+                            Account Type
+                        </span>
+
+                        <strong id="account-role">
+                            Customer
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ORDER HISTORY
+                 ================================================= -->
+
+            <section class="account-section">
+
+                <div class="account-section-header">
+
+                    <div>
+
+                        <p>
+                            PURCHASES
+                        </p>
+
+                        <h2>
+                            My Order History
+                        </h2>
+
+                    </div>
+
+                    <a
+                        href="products.html"
+                        class="account-shop-button"
+                    >
+                        Continue Shopping
+                    </a>
+
+                </div>
+
+
+                <div id="orders-container">
+
+                    <div class="orders-loading">
+
+                        <p>
+                            Loading your orders...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =================================================
+         FOOTER
+         ================================================= -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            Computer<span>Shop</span>
+        </div>
+
+        <p>
+            Quality computers and accessories for your needs.
+        </p>
+
+        <p>
+            © 2026 Computer Shop. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/account.js"></script>
+
+
+</body>
+
+</html>
