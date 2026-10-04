@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Orders | Computer Shop</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         ADMIN HEADER
+         ===================================================== -->
+
+    <header class="admin-header">
+
+        <div class="admin-header-left">
+
+            <div class="admin-brand">
+                Computer<span>Shop</span>
+            </div>
+
+            <div class="admin-label">
+                ADMIN PANEL
+            </div>
+
+        </div>
+
+
+        <nav class="admin-navbar">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="orders.html" class="active">
+                Orders
+            </a>
+
+            <a href="../index.html" class="view-store">
+                View Store
+            </a>
+
+            <a href="#" id="admin-logout" class="admin-logout">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN PAGE
+         ===================================================== -->
+
+    <main class="admin-page">
+
+        <div class="admin-container">
+
+
+            <!-- PAGE TITLE -->
+
+            <div class="admin-page-title">
+
+                <div>
+
+                    <p>
+                        COMPUTER SHOP
+                    </p>
+
+                    <h1>
+                        Manage Orders
+                    </h1>
+
+                    <span>
+                        View customer orders and update their status.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ORDER FILTERS
+                 ================================================= -->
+
+            <section class="admin-section">
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <p>
+                            ORDER MANAGEMENT
+                        </p>
+
+                        <h2>
+                            Customer Orders
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-order-controls">
+
+                    <div class="admin-order-search">
+
+                        <input
+                            type="text"
+                            id="admin-order-search"
+                            placeholder="Search by order ID or user ID..."
+                        >
+
+                    </div>
+
+
+                    <div class="admin-order-filter">
+
+                        <select id="admin-order-status-filter">
+
+                            <option value="ALL">
+                                All Orders
+                            </option>
+
+                            <option value="PENDING">
+                                Pending
+                            </option>
+
+                            <option value="PROCESSING">
+                                Processing
+                            </option>
+
+                            <option value="COMPLETED">
+                                Completed
+                            </option>
+
+                            <option value="CANCELLED">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ORDERS CONTAINER
+                     ================================================= -->
+
+                <div
+                    id="admin-orders-container"
+                    class="admin-orders-container"
+                >
+
+                    <div class="admin-orders-loading">
+
+                        <p>
+                            Loading orders...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            Computer<span>Shop</span>
+        </div>
+
+        <p>
+            Computer Shop Administration Panel
+        </p>
+
+        <p>
+            © 2026 Computer Shop. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="../js/admin-orders.js"></script>
+
+</body>
+
+</html>

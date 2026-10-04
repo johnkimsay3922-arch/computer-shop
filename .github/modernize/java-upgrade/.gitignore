@@ -1,0 +1,23 @@
+# Spring Boot local secrets
+src/main/resources/application-local.properties
+
+# Maven
+target/
+
+# Uploaded images
+uploads/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+# Local error/debug files
+startup-error.txt
+*.log
+
+# Environment/secrets
+.env
+.env.*

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Computer Shop</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         ADMIN HEADER
+         ================================================= -->
+
+    <header class="admin-header">
+
+        <div class="admin-header-left">
+
+            <div class="admin-brand">
+                Computer<span>Shop</span>
+            </div>
+
+            <div class="admin-label">
+                ADMIN PANEL
+            </div>
+
+        </div>
+
+
+        <nav class="admin-navbar">
+
+            <a href="dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="../index.html" class="view-store">
+                View Store
+            </a>
+
+            <a href="#" id="admin-logout" class="admin-logout">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =================================================
+         DASHBOARD
+         ================================================= -->
+
+    <main class="admin-page">
+
+        <div class="admin-container">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="admin-page-title">
+
+                <div>
+
+                    <p>
+                        COMPUTER SHOP
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <span id="admin-welcome">
+                        Welcome to the administration panel.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+                 ================================================= -->
+
+            <section class="admin-stats">
+
+
+                <!-- PRODUCTS -->
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Products
+                        </span>
+
+                        <strong id="total-products">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- USERS -->
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Users
+                        </span>
+
+                        <strong id="total-users">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ORDERS -->
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        🛒
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Orders
+                        </span>
+
+                        <strong id="total-orders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SALES -->
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Sales
+                        </span>
+
+                        <strong id="total-sales">
+                            KSh 0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+                 ================================================= -->
+
+            <section class="admin-section">
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <p>
+                            MANAGEMENT
+                        </p>
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-actions">
+
+
+                    <a href="products.html" class="admin-action-card">
+
+                        <div class="admin-action-icon">
+                            📦
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Manage Products
+                            </h3>
+
+                            <p>
+                                Add, edit and delete computer products.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a href="orders.html" class="admin-action-card">
+
+                        <div class="admin-action-icon">
+                            🛒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Manage Orders
+                            </h3>
+
+                            <p>
+                                View customer orders and update status.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a href="../products.html" class="admin-action-card">
+
+                        <div class="admin-action-icon">
+                            🖥️
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                View Store
+                            </h3>
+
+                            <p>
+                                See how customers view the shop.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+                <!-- PENDING ORDERS -->
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        ⏳
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Pending Orders
+                        </span>
+
+                        <strong id="pending-orders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SHIPPED ORDERS -->
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        🚚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Shipped Orders
+                        </span>
+
+                        <strong id="shipped-orders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DELIVERED ORDERS -->
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        ✅
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Delivered Orders
+                        </span>
+
+                        <strong id="delivered-orders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 DASHBOARD INFORMATION
+                 ================================================= -->
+            <!-- =================================================
+     RECENT ORDERS
+     ================================================= -->
+
+            <section class="admin-section">
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <p>
+                            ORDERS
+                        </p>
+
+                        <h2>
+                            Recent Orders
+                        </h2>
+
+                    </div>
+
+                    <a href="orders.html" class="admin-section-link">
+                        View All Orders →
+                    </a>
+
+                </div>
+
+
+                <div id="recent-orders" class="recent-orders">
+
+                    <div class="recent-orders-loading">
+                        Loading recent orders...
+                    </div>
+
+                </div>
+
+            </section>
+            <section class="admin-section">
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <p>
+                            SYSTEM
+                        </p>
+
+                        <h2>
+                            Administration Information
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-info-grid">
+
+                    <div class="admin-info-card">
+
+                        <span>
+                            Backend
+                        </span>
+
+                        <strong>
+                            Spring Boot
+                        </strong>
+
+                    </div>
+
+
+                    <div class="admin-info-card">
+
+                        <span>
+                            Database
+                        </span>
+
+                        <strong>
+                            MySQL
+                        </strong>
+
+                    </div>
+
+
+                    <div class="admin-info-card">
+
+                        <span>
+                            API Status
+                        </span>
+
+                        <strong id="api-status" class="status-online">
+                            Checking...
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =================================================
+         FOOTER
+         ================================================= -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            Computer<span>Shop</span>
+        </div>
+
+        <p>
+            Computer Shop Administration Panel
+        </p>
+
+        <p>
+            © 2026 Computer Shop. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script src="../js/admin-dashboard.js"></script>
+
+</body>
+
+</html>
