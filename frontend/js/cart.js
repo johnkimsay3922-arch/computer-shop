@@ -1,5 +1,5 @@
 const PRODUCTS_API =
-    "http://localhost:8081/api/products";
+    "http://computer-shop-backend-agmw.onrender.com/api/products";
 
 
 // =====================================================
@@ -202,7 +202,7 @@ function displayCart(cart, products) {
 
     <img
         src="${product.image
-                ? 'http://localhost:8081/uploads/' + product.image
+                ? 'http://computer-shop-backend-agmw.onrender.com/uploads/' + product.image
                 : 'https://via.placeholder.com/150x120?text=Product'
             }"
         alt="${product.name}"

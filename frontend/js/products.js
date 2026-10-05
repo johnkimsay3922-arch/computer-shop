@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8081/api/products";
+const API_URL = "http://computer-shop-backend-agmw.onrender.com/api/products";
 
 let allProducts = [];
 
@@ -131,7 +131,7 @@ function displayProducts(products) {
                 } else {
 
                     imageUrl =
-                        `http://localhost:8081/uploads/${encodeURIComponent(imageName)}`;
+                        `http://computer-shop-backend-agmw.onrender.com/uploads/${encodeURIComponent(imageName)}`;
                 }
             }
         }

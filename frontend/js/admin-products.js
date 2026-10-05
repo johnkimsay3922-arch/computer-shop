@@ -1,5 +1,5 @@
-const PRODUCTS_API = "http://localhost:8081/api/products";
-const UPLOAD_API = "http://localhost:8081/api/products/upload-image";
+const PRODUCTS_API = "http://computer-shop-backend-agmw.onrender.com/api/products";
+const UPLOAD_API = "http://computer-shop-backend-agmw.onrender.com/api/products/upload-image";
 
 let allProducts = [];
 let editingProductId = null;
@@ -35,7 +35,7 @@ function getProductImageUrl(image) {
         return "";
     }
 
-    return `http://localhost:8081/uploads/${encodeURIComponent(imageName)}`;
+    return `http://computer-shop-backend-agmw.onrender.com/uploads/${encodeURIComponent(imageName)}`;
 }
 
 

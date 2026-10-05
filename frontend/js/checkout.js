@@ -1,8 +1,8 @@
 const PRODUCTS_API =
-    "http://localhost:8081/api/products";
+    "http://computer-shop-backend-agmw.onrender.com/api/products";
 
 const CHECKOUT_API =
-    "http://localhost:8081/api/checkout";
+    "http://computer-shop-backend-agmw.onrender.com/api/checkout";
 
 
 // =====================================================
@@ -208,7 +208,7 @@ function displayCheckoutProducts(
 
 <img
     src="${product.image
-        ? "http://localhost:8081/uploads/" + product.image
+        ? "http://computer-shop-backend-agmw.onrender.com/uploads/" + product.image
         : "https://via.placeholder.com/100x80?text=Product"
     }"
     alt="${product.name}"
