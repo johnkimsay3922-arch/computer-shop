@@ -1,5 +1,4 @@
-const API_URL = "http://computer-shop-backend-agmw.onrender.com/api/products";
-
+const API_URL = "https://computer-shop-backend-agmw.onrender.com/api/products";
 let allProducts = [];
 
 
