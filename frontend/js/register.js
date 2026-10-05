@@ -1,5 +1,5 @@
 const USERS_API =
-    "http://computer-shop-backend-agmw.onrender.com/api/users";
+    "https://computer-shop-backend-agmw.onrender.com/api/users";
 
 
 // =====================================================

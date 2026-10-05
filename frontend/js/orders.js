@@ -1,8 +1,8 @@
 const USERS_API =
-    "http://computer-shop-backend-agmw.onrender.com/api/users";
+    "https://computer-shop-backend-agmw.onrender.com/api/users";
 
 const ORDERS_API =
-    "http://computer-shop-backend-agmw.onrender.com/api/orders";
+    "https://computer-shop-backend-agmw.onrender.com/api/orders";
 
 
 // =====================================================

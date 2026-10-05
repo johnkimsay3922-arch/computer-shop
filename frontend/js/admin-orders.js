@@ -1,4 +1,4 @@
-const ORDERS_API = "http://computer-shop-backend-agmw.onrender.com/api/orders";
+const ORDERS_API = "https://computer-shop-backend-agmw.onrender.com/api/orders";
 
 let allOrders = [];
 

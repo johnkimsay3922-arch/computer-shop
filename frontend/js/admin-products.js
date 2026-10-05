@@ -1,6 +1,5 @@
-const PRODUCTS_API = "http://computer-shop-backend-agmw.onrender.com/api/products";
-const UPLOAD_API = "http://computer-shop-backend-agmw.onrender.com/api/products/upload-image";
-
+const PRODUCTS_API ="https://computer-shop-backend-agmw.onrender.com/api/products";
+const UPLOAD_API = "https://computer-shop-backend-agmw.onrender.com/api/products/upload-image";
 let allProducts = [];
 let editingProductId = null;
 
@@ -35,7 +34,7 @@ function getProductImageUrl(image) {
         return "";
     }
 
-    return `http://computer-shop-backend-agmw.onrender.com/uploads/${encodeURIComponent(imageName)}`;
+    return `https://computer-shop-backend-agmw.onrender.com/uploads/${encodeURIComponent(imageName)}`;
 }
 
 

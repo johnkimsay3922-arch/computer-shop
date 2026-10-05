@@ -1,5 +1,5 @@
 const ORDERS_API =
-    "http://computer-shop-backend-agmw.onrender.com/api/orders";
+    "https://computer-shop-backend-agmw.onrender.com/api/orders";
 
 
 // =====================================================

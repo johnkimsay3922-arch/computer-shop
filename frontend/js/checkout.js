@@ -1,8 +1,6 @@
-const PRODUCTS_API =
-    "http://computer-shop-backend-agmw.onrender.com/api/products";
-
+const PRODUCTS_API = "https://computer-shop-backend-agmw.onrender.com/api/products";
 const CHECKOUT_API =
-    "http://computer-shop-backend-agmw.onrender.com/api/checkout";
+    "https://computer-shop-backend-agmw.onrender.com/api/checkout";
 
 
 // =====================================================
@@ -208,7 +206,7 @@ function displayCheckoutProducts(
 
 <img
     src="${product.image
-        ? "http://computer-shop-backend-agmw.onrender.com/uploads/" + product.image
+        ? "https://computer-shop-backend-agmw.onrender.com/uploads/" + product.image
         : "https://via.placeholder.com/100x80?text=Product"
     }"
     alt="${product.name}"
