@@ -1,4 +1,9 @@
-const API_URL = "https://computer-shop-backend-agmw.onrender.com/api/products";
+const API_URL =
+    "https://computer-shop-backend-agmw.onrender.com/api/products";
+
+const BACKEND_URL =
+    "https://computer-shop-backend-agmw.onrender.com";
+
 let allProducts = [];
 
 
@@ -30,7 +35,10 @@ async function loadProducts() {
 
         allProducts = await response.json();
 
-        console.log("PRODUCTS FROM BACKEND:", allProducts);
+        console.log(
+            "PRODUCTS FROM BACKEND:",
+            allProducts
+        );
 
         displayProducts(allProducts);
 
@@ -38,14 +46,17 @@ async function loadProducts() {
 
     } catch (error) {
 
-        console.error("Error loading products:", error);
+        console.error(
+            "Error loading products:",
+            error
+        );
 
         productContainer.innerHTML = `
             <div class="error-message">
                 <h3>Unable to load products</h3>
                 <p>
                     Please make sure the Computer Shop
-                    backend is running.
+                    backend is available.
                 </p>
             </div>
         `;
@@ -93,7 +104,8 @@ function displayProducts(products) {
         const productCard =
             document.createElement("div");
 
-        productCard.className = "product-card";
+        productCard.className =
+            "product-card";
 
 
         // =================================================
@@ -103,22 +115,41 @@ function displayProducts(products) {
         let imageUrl =
             "https://via.placeholder.com/400x300?text=Computer+Product";
 
+
         if (product.image) {
 
             let imageName =
                 String(product.image).trim();
 
-            // Remove possible "uploads/" or "uploads\"
-            imageName = imageName.replace(/^uploads[\\/]/i, "");
 
-            // Remove possible leading slash
-            imageName = imageName.replace(/^\/+/, "");
+            // Remove uploads/ if it already exists
 
-            // Do not use old upload error messages as image names
+            imageName =
+                imageName.replace(
+                    /^uploads[\\/]/i,
+                    ""
+                );
+
+
+            // Remove leading slash
+
+            imageName =
+                imageName.replace(
+                    /^\/+/,
+                    ""
+                );
+
+
+            // Ignore failed upload messages
+
             if (
                 imageName &&
-                !imageName.toLowerCase().includes("upload failed")
+                !imageName
+                    .toLowerCase()
+                    .includes("upload failed")
             ) {
+
+                // If database already contains full URL
 
                 if (
                     imageName.startsWith("http://") ||
@@ -129,8 +160,10 @@ function displayProducts(products) {
 
                 } else {
 
+                    // Build Render image URL
+
                     imageUrl =
-                        `http://computer-shop-backend-agmw.onrender.com/uploads/${encodeURIComponent(imageName)}`;
+                        `${BACKEND_URL}/uploads/${encodeURIComponent(imageName)}`;
                 }
             }
         }
@@ -159,8 +192,15 @@ function displayProducts(products) {
                 alt="${product.name || "Computer Product"}"
                 class="product-image"
                 onerror="
-                    this.onerror=null;
-                    this.src='https://via.placeholder.com/400x300?text=Computer+Product';
+                    console.error(
+                        'IMAGE FAILED:',
+                        this.src
+                    );
+
+                    this.onerror = null;
+
+                    this.src =
+                        'https://via.placeholder.com/400x300?text=Computer+Product';
                 "
             >
 
@@ -194,7 +234,9 @@ function displayProducts(products) {
                 <!-- PRICE -->
 
                 <p class="product-price">
-                    KSh ${Number(product.price || 0).toLocaleString()}
+                    KSh ${Number(
+                        product.price || 0
+                    ).toLocaleString()}
                 </p>
 
 
@@ -236,7 +278,10 @@ function displayProducts(products) {
                     <button
                         type="button"
                         class="quantity-button"
-                        onclick="increaseQuantity(${product.id}, ${product.stock})"
+                        onclick="increaseQuantity(
+                            ${product.id},
+                            ${product.stock}
+                        )"
                         ${product.stock <= 0 ? "disabled" : ""}
                     >
                         +
@@ -250,7 +295,10 @@ function displayProducts(products) {
                 <button
                     type="button"
                     class="product-button"
-                    onclick="addSelectedQuantityToCart(${product.id}, ${product.stock})"
+                    onclick="addSelectedQuantityToCart(
+                        ${product.id},
+                        ${product.stock}
+                    )"
                     ${product.stock <= 0 ? "disabled" : ""}
                 >
 
@@ -266,7 +314,9 @@ function displayProducts(products) {
         `;
 
 
-        productContainer.appendChild(productCard);
+        productContainer.appendChild(
+            productCard
+        );
 
     });
 }
@@ -276,17 +326,24 @@ function displayProducts(products) {
 // INCREASE QUANTITY
 // =====================================================
 
-function increaseQuantity(productId, stock) {
+function increaseQuantity(
+    productId,
+    stock
+) {
 
     const quantityElement =
-        document.getElementById(`quantity-${productId}`);
+        document.getElementById(
+            `quantity-${productId}`
+        );
 
     if (!quantityElement) {
         return;
     }
 
     let quantity =
-        parseInt(quantityElement.textContent);
+        parseInt(
+            quantityElement.textContent
+        );
 
     if (quantity < stock) {
         quantity++;
@@ -304,14 +361,18 @@ function increaseQuantity(productId, stock) {
 function decreaseQuantity(productId) {
 
     const quantityElement =
-        document.getElementById(`quantity-${productId}`);
+        document.getElementById(
+            `quantity-${productId}`
+        );
 
     if (!quantityElement) {
         return;
     }
 
     let quantity =
-        parseInt(quantityElement.textContent);
+        parseInt(
+            quantityElement.textContent
+        );
 
     if (quantity > 1) {
         quantity--;
@@ -326,54 +387,78 @@ function decreaseQuantity(productId) {
 // ADD TO CART
 // =====================================================
 
-function addSelectedQuantityToCart(productId, stock) {
+function addSelectedQuantityToCart(
+    productId,
+    stock
+) {
 
     const quantityElement =
-        document.getElementById(`quantity-${productId}`);
+        document.getElementById(
+            `quantity-${productId}`
+        );
 
     if (!quantityElement) {
         return;
     }
 
     const quantity =
-        parseInt(quantityElement.textContent);
+        parseInt(
+            quantityElement.textContent
+        );
+
 
     if (quantity <= 0) {
-        alert("Please select a valid quantity.");
+
+        alert(
+            "Please select a valid quantity."
+        );
+
         return;
     }
 
+
     if (quantity > stock) {
-        alert("Not enough stock available.");
+
+        alert(
+            "Not enough stock available."
+        );
+
         return;
     }
 
 
     let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+        JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
 
 
     const existingProduct =
-        cart.find(item => item.id === productId);
+        cart.find(
+            item => item.id === productId
+        );
 
 
     if (existingProduct) {
 
         if (
-            existingProduct.quantity + quantity >
+            existingProduct.quantity +
+            quantity >
             stock
         ) {
 
             alert(
                 `You can only add ${
-                    stock - existingProduct.quantity
+                    stock -
+                    existingProduct.quantity
                 } more item(s) of this product.`
             );
 
             return;
         }
 
-        existingProduct.quantity += quantity;
+        existingProduct.quantity +=
+            quantity;
 
     } else {
 
@@ -409,15 +494,21 @@ function addSelectedQuantityToCart(productId, stock) {
 function filterProducts() {
 
     const searchInput =
-        document.getElementById("search-input");
+        document.getElementById(
+            "search-input"
+        );
 
     const categoryFilter =
-        document.getElementById("category-filter");
+        document.getElementById(
+            "category-filter"
+        );
 
 
     const searchText =
         searchInput
-            ? searchInput.value.toLowerCase().trim()
+            ? searchInput.value
+                .toLowerCase()
+                .trim()
             : "";
 
 
@@ -428,44 +519,45 @@ function filterProducts() {
 
 
     const filteredProducts =
-        allProducts.filter(product => {
+        allProducts.filter(
+            product => {
+
+                const matchesSearch =
+                    !searchText ||
+
+                    (product.name || "")
+                        .toLowerCase()
+                        .includes(searchText) ||
+
+                    (product.description || "")
+                        .toLowerCase()
+                        .includes(searchText) ||
+
+                    (product.category || "")
+                        .toLowerCase()
+                        .includes(searchText);
 
 
-            // SEARCH
+                const matchesCategory =
+                    selectedCategory === "All" ||
 
-            const matchesSearch =
-                !searchText ||
-
-                (product.name || "")
-                    .toLowerCase()
-                    .includes(searchText) ||
-
-                (product.description || "")
-                    .toLowerCase()
-                    .includes(searchText) ||
-
-                (product.category || "")
-                    .toLowerCase()
-                    .includes(searchText);
+                    (product.category || "")
+                        .toLowerCase() ===
+                    selectedCategory
+                        .toLowerCase();
 
 
-            // CATEGORY
-
-            const matchesCategory =
-                selectedCategory === "All" ||
-                (product.category || "").toLowerCase() ===
-                selectedCategory.toLowerCase();
-
-
-            return (
-                matchesSearch &&
-                matchesCategory
-            );
-
-        });
+                return (
+                    matchesSearch &&
+                    matchesCategory
+                );
+            }
+        );
 
 
-    displayProducts(filteredProducts);
+    displayProducts(
+        filteredProducts
+    );
 }
 
 
@@ -476,7 +568,6 @@ function filterProducts() {
 function searchProducts() {
 
     filterProducts();
-
 }
 
 
@@ -487,7 +578,6 @@ function searchProducts() {
 function filterByCategory() {
 
     filterProducts();
-
 }
 
 
@@ -507,50 +597,49 @@ function applyCategoryFromURL() {
         params.get("category");
 
 
-    // No category in URL
     if (!category) {
         return;
     }
 
 
     const categoryFilter =
-        document.getElementById("category-filter");
+        document.getElementById(
+            "category-filter"
+        );
 
 
     if (categoryFilter) {
 
         categoryFilter.value =
             category;
-
     }
 
 
-    // =================================================
-    // ALL CATEGORY
-    // =================================================
+    if (
+        category.toLowerCase() ===
+        "all"
+    ) {
 
-    if (category.toLowerCase() === "all") {
-
-        displayProducts(allProducts);
+        displayProducts(
+            allProducts
+        );
 
         return;
     }
 
 
-    // =================================================
-    // SPECIFIC CATEGORY
-    // =================================================
-
     const filteredProducts =
-        allProducts.filter(product =>
-
-            (product.category || "").toLowerCase() ===
-            category.toLowerCase()
-
+        allProducts.filter(
+            product =>
+                (product.category || "")
+                    .toLowerCase() ===
+                category.toLowerCase()
         );
 
 
-    displayProducts(filteredProducts);
+    displayProducts(
+        filteredProducts
+    );
 }
 
 
@@ -561,7 +650,9 @@ function applyCategoryFromURL() {
 function updateCartCount() {
 
     const cartCount =
-        document.getElementById("cartCount");
+        document.getElementById(
+            "cartCount"
+        );
 
     if (!cartCount) {
         return;
@@ -579,8 +670,8 @@ function updateCartCount() {
 
     cart.forEach(item => {
 
-        totalItems += item.quantity;
-
+        totalItems +=
+            item.quantity;
     });
 
 
@@ -605,7 +696,9 @@ document.addEventListener(
         // SEARCH
 
         const searchInput =
-            document.getElementById("search-input");
+            document.getElementById(
+                "search-input"
+            );
 
 
         if (searchInput) {
@@ -614,14 +707,15 @@ document.addEventListener(
                 "input",
                 searchProducts
             );
-
         }
 
 
         // CATEGORY DROPDOWN
 
         const categoryFilter =
-            document.getElementById("category-filter");
+            document.getElementById(
+                "category-filter"
+            );
 
 
         if (categoryFilter) {
@@ -630,7 +724,6 @@ document.addEventListener(
                 "change",
                 filterByCategory
             );
-
         }
 
     }
