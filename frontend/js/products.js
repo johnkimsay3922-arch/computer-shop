@@ -8,7 +8,7 @@ let allProducts = [];
 
 
 // =====================================================
-// LOAD PRODUCTS FROM JAVA BACKEND
+// LOAD PRODUCTS
 // =====================================================
 
 async function loadProducts() {
@@ -23,7 +23,7 @@ async function loadProducts() {
     try {
 
         const response = await fetch(
-            API_URL + "?t=" + new Date().getTime(),
+            API_URL + "?t=" + Date.now(),
             {
                 cache: "no-store"
             }
@@ -55,8 +55,7 @@ async function loadProducts() {
             <div class="error-message">
                 <h3>Unable to load products</h3>
                 <p>
-                    Please make sure the Computer Shop
-                    backend is available.
+                    Unable to connect to the Computer Shop backend.
                 </p>
             </div>
         `;
@@ -80,8 +79,6 @@ function displayProducts(products) {
     productContainer.innerHTML = "";
 
 
-    // NO PRODUCTS
-
     if (products.length === 0) {
 
         productContainer.innerHTML = `
@@ -97,8 +94,6 @@ function displayProducts(products) {
     }
 
 
-    // CREATE PRODUCT CARDS
-
     products.forEach(product => {
 
         const productCard =
@@ -109,7 +104,7 @@ function displayProducts(products) {
 
 
         // =================================================
-        // IMAGE URL
+        // PRODUCT IMAGE
         // =================================================
 
         let imageUrl =
@@ -122,7 +117,7 @@ function displayProducts(products) {
                 String(product.image).trim();
 
 
-            // Remove uploads/ if it already exists
+            // Remove uploads/ if already included
 
             imageName =
                 imageName.replace(
@@ -140,16 +135,12 @@ function displayProducts(products) {
                 );
 
 
-            // Ignore failed upload messages
-
             if (
                 imageName &&
                 !imageName
                     .toLowerCase()
                     .includes("upload failed")
             ) {
-
-                // If database already contains full URL
 
                 if (
                     imageName.startsWith("http://") ||
@@ -159,8 +150,6 @@ function displayProducts(products) {
                     imageUrl = imageName;
 
                 } else {
-
-                    // Build Render image URL
 
                     imageUrl =
                         `${BACKEND_URL}/uploads/${encodeURIComponent(imageName)}`;
@@ -185,8 +174,6 @@ function displayProducts(products) {
 
         productCard.innerHTML = `
 
-            <!-- PRODUCT IMAGE -->
-
             <img
                 src="${imageUrl}"
                 alt="${product.name || "Computer Product"}"
@@ -205,33 +192,22 @@ function displayProducts(products) {
             >
 
 
-            <!-- PRODUCT INFORMATION -->
-
             <div class="product-info">
-
-
-                <!-- CATEGORY -->
 
                 <p class="product-category">
                     ${product.category || "Other"}
                 </p>
 
 
-                <!-- NAME -->
-
                 <h3 class="product-name">
                     ${product.name || "Unnamed Product"}
                 </h3>
 
 
-                <!-- DESCRIPTION -->
-
                 <p class="product-description">
                     ${product.description || "No description available."}
                 </p>
 
-
-                <!-- PRICE -->
 
                 <p class="product-price">
                     KSh ${Number(
@@ -240,20 +216,14 @@ function displayProducts(products) {
                 </p>
 
 
-                <!-- STOCK -->
-
                 <p class="product-stock">
-
                     ${
                         product.stock > 0
                             ? `${product.stock} in stock`
                             : "Out of stock"
                     }
-
                 </p>
 
-
-                <!-- QUANTITY CONTROL -->
 
                 <div class="quantity-control">
 
@@ -290,8 +260,6 @@ function displayProducts(products) {
                 </div>
 
 
-                <!-- ADD TO CART -->
-
                 <button
                     type="button"
                     class="product-button"
@@ -301,13 +269,11 @@ function displayProducts(products) {
                     )"
                     ${product.stock <= 0 ? "disabled" : ""}
                 >
-
                     ${
                         product.stock > 0
                             ? "Add to Cart"
                             : "Out of Stock"
                     }
-
                 </button>
 
             </div>
@@ -478,7 +444,8 @@ function addSelectedQuantityToCart(
     updateCartCount();
 
 
-    quantityElement.textContent = 1;
+    quantityElement.textContent =
+        1;
 
 
     alert(
@@ -562,7 +529,7 @@ function filterProducts() {
 
 
 // =====================================================
-// SEARCH PRODUCTS
+// SEARCH
 // =====================================================
 
 function searchProducts() {
@@ -572,7 +539,7 @@ function searchProducts() {
 
 
 // =====================================================
-// FILTER BY CATEGORY
+// CATEGORY FILTER
 // =====================================================
 
 function filterByCategory() {
@@ -582,7 +549,7 @@ function filterByCategory() {
 
 
 // =====================================================
-// READ CATEGORY FROM URL
+// CATEGORY FROM URL
 // =====================================================
 
 function applyCategoryFromURL() {
@@ -644,7 +611,7 @@ function applyCategoryFromURL() {
 
 
 // =====================================================
-// UPDATE CART COUNT
+// CART COUNT
 // =====================================================
 
 function updateCartCount() {
@@ -672,6 +639,7 @@ function updateCartCount() {
 
         totalItems +=
             item.quantity;
+
     });
 
 
@@ -693,8 +661,6 @@ document.addEventListener(
         updateCartCount();
 
 
-        // SEARCH
-
         const searchInput =
             document.getElementById(
                 "search-input"
@@ -707,10 +673,9 @@ document.addEventListener(
                 "input",
                 searchProducts
             );
+
         }
 
-
-        // CATEGORY DROPDOWN
 
         const categoryFilter =
             document.getElementById(
@@ -724,6 +689,7 @@ document.addEventListener(
                 "change",
                 filterByCategory
             );
+
         }
 
     }
