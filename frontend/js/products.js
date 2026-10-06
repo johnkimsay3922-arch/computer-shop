@@ -100,9 +100,8 @@ function displayProducts(products) {
         // IMAGE URL
         // =================================================
 
-        let imageUrl =
-            "https://via.placeholder.com/400x300?text=Computer+Product";
-
+imageUrl =
+    `https://computer-shop-backend-agmw.onrender.com/uploads/${encodeURIComponent(imageName)}`;
         if (product.image) {
 
             let imageName =
@@ -129,8 +128,7 @@ function displayProducts(products) {
 
                 } else {
 
-                    imageUrl =
-                        `http://localhost:8081/uploads/${encodeURIComponent(imageName)}`;
+`https://computer-shop-backend-agmw.onrender.com/uploads/${encodeURIComponent(imageName)}`
                 }
             }
         }
