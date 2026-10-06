@@ -3,7 +3,7 @@ const API_URL =
 
 const BACKEND_URL =
     "https://computer-shop-backend-agmw.onrender.com";
-
+    
 let allProducts = [];
 
 
