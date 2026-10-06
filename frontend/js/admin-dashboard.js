@@ -1,7 +1,7 @@
 const ADMIN_DASHBOARD_API =
-    "http://localhost:8081/api/admin/dashboard";
+    "https://computer-shop-backend-agmw.onrender.com/api/admin/dashboard";
 const ORDERS_API =
-    "http://localhost:8081/api/orders";
+    "https://computer-shop-backend-agmw.onrender.com/api/orders";
 
 
 // =====================================================
@@ -428,3 +428,4 @@ document.addEventListener(
 
     }
 );
+

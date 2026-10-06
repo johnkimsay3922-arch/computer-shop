@@ -1,4 +1,4 @@
-const ORDERS_API = "http://localhost:8081/api/orders";
+const ORDERS_API = "https://computer-shop-backend-agmw.onrender.com/api/orders";
 
 let allOrders = [];
 
