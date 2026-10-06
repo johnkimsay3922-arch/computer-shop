@@ -1,6 +1,5 @@
 const USERS_API =
-    "http://localhost:8081/api/users";
-
+"https://computer-shop-backend-agmw.onrender.com/api/users";
 
 // =====================================================
 // REGISTER USER
